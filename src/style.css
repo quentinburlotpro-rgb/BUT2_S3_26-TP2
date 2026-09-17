@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes count-anim {
+  0% { --num: 0; }
+  100% { --num: 5000; } /* Modifie la cible ici si besoin */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@theme inline {
+  --color-light: var(--text-light);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-danger: var(--danger);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-soft: var(--text-soft);
+  --color-input: var(--bg-input);
+
+  --background-image-mobile: var(--bg-mobile);
+  --background-image-desktop: var(--bg-desktop);
+  --background-image-tablet: var(--bg-tablet);
+}
+
+@layer base {
+  :root {
+    /* Palette */
+    --teal-300: hsl(157, 100%, 85%);
+    --teal-400: hsl(157, 74%, 62%);
+    --red-400: hsl(0, 96%, 61%);
+    --neutral-100: hsl(0, 0%, 100%);
+    --neutral-200: hsl(225, 40%, 83%);
+    --neutral-300: hsl(225, 21%, 45%);
+    --neutral-400: hsl(225, 26%, 23%);
+    --neutral-500: hsl(224, 35%, 11%);
+
+    /* Tokens sémantiques */
+    --text-light: var(--neutral-100);
+    --foreground: var(--neutral-500);
+    --primary: var(--teal-400);
+    --primary-soft: var(--teal-300);
+    --danger: var(--red-400);
+    --muted: var(--neutral-200);
+    --surface: var(--neutral-100);
+    --border: var(--neutral-200);
+    --text-soft: var(--neutral-300);
+    --bg-input: var(--neutral-400);
+
+    /* Typography - Font Sizes */
+    --font-size-200: 0.75rem;
+    --font-size-300: 0.875rem;
+    --font-size-400: 0.9375rem;
+    --font-size-800: 1.625rem;
+
+    /* Typography - Line Heights */
+    --line-height-200: 0.8925rem;
+    --line-height-300: 1.75rem;
+    --line-height-400: 1.5625rem;
+    --line-height-800: 2.375rem;
+
+    /* Typography - Font Weights */
+    --font-weight-400: 400;
+    --font-weight-900: 900;
+
+    /* Font Family */
+    --font-family: "Chivo", sans-serif;
+
+    --bg-mobile: linear-gradient(135deg, hsl(224, 35%, 11%, 50%) 0%, hsl(224, 35%, 5%, 50%) 100%), url("./assets/mobile/image-host.jpg");
+    --bg-desktop: url("./assets/desktop/image-host.jpg");
+    --bg-tablet: url("./assets/tablet/image-host.jpg");
+  }
+}
